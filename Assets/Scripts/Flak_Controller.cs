@@ -11,7 +11,7 @@ public class Flak_Controller : MonoBehaviour
 
     private void Awake()
     {
-        target = new Vector3(0.0f, 0.0f, 0.0f);
+        target = new Vector3(0.0f, -1.7f, 0.0f);
     }
     // Start is called before the first frame update
     void Start()
