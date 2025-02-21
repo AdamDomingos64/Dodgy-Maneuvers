@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Flak_Controller : MonoBehaviour
@@ -8,10 +9,19 @@ public class Flak_Controller : MonoBehaviour
 
     private Vector3 target;
 
+    public SpriteRenderer spriteRenderer;
+    public Sprite newSprite;
+
+   
+
+    void ChangeSprite(Sprite newSprite)
+    {
+        spriteRenderer.sprite = newSprite;
+    }
 
     private void Awake()
     {
-        target = new Vector3(0.0f, -1.7f, 0.0f);
+        target = new Vector3(0.0f, 1.0f, 0.0f);
     }
     // Start is called before the first frame update
     void Start()
@@ -27,5 +37,15 @@ public class Flak_Controller : MonoBehaviour
         dir.Normalize();
         transform.position += speed * dir;
 
+        if (transform.position.y > 0.2f)
+        {
+            ChangeSprite(newSprite);
+            target = new Vector3(-0.5f, 0.0f, 0.0f);
+        }
+      
+        if (Time.time >= 3.5)
+        {
+            Destroy(gameObject);
+        }
     }
 }
