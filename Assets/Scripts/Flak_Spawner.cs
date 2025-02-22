@@ -9,6 +9,7 @@ public class Flak_Spawner : MonoBehaviour
     public float timeToSpawn, spawnCountdown;
 
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,8 @@ public class Flak_Spawner : MonoBehaviour
         if (spawnCountdown <= 0)
         {
             spawnCountdown = timeToSpawn;
-            Instantiate(prefab);
+            Instantiate(prefab,this.transform.position, this.transform.rotation);
+
 
         }
     }

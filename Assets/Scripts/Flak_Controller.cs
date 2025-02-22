@@ -7,21 +7,23 @@ public class Flak_Controller : MonoBehaviour
 {
     public float speedM = 1.0f;
 
-    private Vector3 target;
+    public Vector3 target;
 
     public SpriteRenderer sR;
     public Sprite newSprite;
 
-    public float decaySpeed = 1.0f;
+    public float decaySpeed = 4.0f;
 
     public Color spriteColor;
     
 
     public bool exploaded = false;
 
+    public Vector3[] targetPosition;
+
     private void Awake()
     {
-        target = new Vector3(0.0f, 1.0f, 0.0f);
+       // target = new Vector3(0.0f, 1.0f, 0.0f);
     }
 
     // Start is called before the first frame update
@@ -40,22 +42,21 @@ public class Flak_Controller : MonoBehaviour
 
         if (transform.position.y > 0.2f)
         {
-            ChangeSprite(newSprite);
-            target = new Vector3(-0.5f, 0.0f, 0.0f);
-            exploaded = true;
+            Explode();
         }
 
+        
         sR.color = spriteColor;
 
-        if (exploaded == true)
+        if (exploaded == true) 
         {
             spriteColor.a -= decaySpeed * Time.deltaTime;
-
-            if (spriteColor.a <= 0.0f)
-            {
-                Destroy(gameObject);
-            }
         }
+        if (spriteColor.a <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void ChangeSprite(Sprite newSprite)
@@ -63,5 +64,15 @@ public class Flak_Controller : MonoBehaviour
         sR.sprite = newSprite;
      
        
+    }
+
+    void Explode()
+    {
+        exploaded = true;
+        target = targetPosition[Random.Range(0, targetPosition.Length)];
+       
+        ChangeSprite(newSprite);
+
+        
     }
 }
