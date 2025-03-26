@@ -5,6 +5,6 @@ public class Tutorial : MonoBehaviour
 {
     public void OnButtonPress()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }

@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
+using System.Runtime.CompilerServices;
 
 public class Player_Controller : MonoBehaviour
 {
+
     public Animator Animator;
     public float Rspeed = 0.1f;
     public float Lspeed = -0.1f;
+    public int Health;
+    public int maxHealth;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        Health = maxHealth;
     }
 
     // Update is called once per frame
@@ -46,6 +52,20 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.A))
         {
             Animator.SetBool("left", false);
+        }
+        if (Health <= 0)
+        {
+            SceneManager.LoadScene(0);
+        }
+
+      
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == ("Flak"))
+        {
+            Debug.Log("Hit");
+            Health -= 1;
         }
     }
 }

@@ -126,9 +126,10 @@ GameObject:
   - component: {fileID: 4316032163970832812}
   - component: {fileID: 4845651866041002262}
   - component: {fileID: 8243103914340789647}
+  - component: {fileID: 5154870232043637718}
   m_Layer: 0
   m_Name: Flak shell
-  m_TagString: Untagged
+  m_TagString: Flak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,8 +225,9 @@ MonoBehaviour:
   spriteColor: {r: 0, g: 0, b: 0, a: 0}
   exploaded: 0
   targetPosition:
-  - {x: 2, y: 0, z: 0}
-  - {x: -2, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!114 &8243103914340789647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +241,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
+--- !u!65 &5154870232043637718
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617804327693701362}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.64, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
